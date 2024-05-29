@@ -1,0 +1,43 @@
+server:
+  port: 9010
+
+####################
+## LOG DO SISTEMA ##
+####################
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql: trace
+
+spring:
+  application:
+    name: foo
+    
+####################
+## BANCO DE DADOS ##
+####################
+
+  jpa:
+    show-sql: true
+    ddl-auto: none
+  datasource:
+    url: jdbc:sqlserver://;serverName=localhost;databaseName=local
+    username:
+    password: 
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 12
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true
